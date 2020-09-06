@@ -6,9 +6,7 @@ public class platform_manager : MonoBehaviour
 {
 
     public string platform;
-    public FixedJoystick movement_joystick;
-    public FixedTouchField touch_panal;
-
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +24,5 @@ public class platform_manager : MonoBehaviour
         }
         return platform;
     }
-    public FixedJoystick get_movement_joystick()
-    {
-        return movement_joystick;
-    }
-    public FixedTouchField get_touch_panal()
-    {
-        return touch_panal;
-    }
+ 
 }

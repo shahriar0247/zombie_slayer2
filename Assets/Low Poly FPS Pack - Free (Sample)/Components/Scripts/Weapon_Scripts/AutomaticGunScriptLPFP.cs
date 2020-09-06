@@ -161,10 +161,10 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 
 	private bool soundHasPlayed = false;
 
-	public string platform;
+	string platform;
 
 	public FixedButton firebtn;
-	public GameObject gamemanager;
+	GameObject gamemanager;
     private bool button_down;
 
     private void Awake () {
@@ -180,6 +180,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private void Start () {
 
 		//geting if its mobile or pc
+		gamemanager = GameObject.FindGameObjectWithTag("game_manager");
 		platform_manager platform_manager = gamemanager.GetComponent<platform_manager>();
 
 		platform = platform_manager.get_platform();

@@ -71,11 +71,11 @@ namespace FPSControllerLPFP
 
      
   
-        public GameObject gamemanager;
+        GameObject gamemanager;
         string platform;
 
-         FixedJoystick movement_joystick;
-        FixedTouchField touch_panal;
+        public FixedJoystick movement_joystick;
+        public FixedTouchField touch_panal;
 
         /// Initializes the FpsController on start.
         private void Start()
@@ -92,16 +92,11 @@ namespace FPSControllerLPFP
             _velocityX = new SmoothVelocity();
             _velocityZ = new SmoothVelocity();
 
-         
+            gamemanager = GameObject.FindGameObjectWithTag("game_manager");
             platform_manager platform_manager = gamemanager.GetComponent<platform_manager>();
 
             platform = platform_manager.get_platform();
 
-            movement_joystick = platform_manager.get_movement_joystick();
-            touch_panal = platform_manager.get_touch_panal();
-            
-           
-          
             if (platform == "pc")
                 Cursor.lockState = CursorLockMode.Locked;
             ValidateRotationRestriction();

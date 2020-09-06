@@ -33,17 +33,22 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         Movement();
+      
+    }
+
+    void Rotate()
+    {
+        this.transform.Rotate(Vector3.up, Input.GetAxisRaw("Mouse X")) ;
+
     }
 
     void Movement()
     {
         Vector2 movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        Vector3 forward = cam.forward;
-        Vector3 right = cam.right;
+        Vector3 forward = graphics.transform.forward;
+        Vector3 right = graphics.transform.right;
 
-        forward.Normalize();
-        right.Normalize();
 
         Vector3 moveto = (forward * movementInput.y + right * movementInput.x).normalized;
         Vector3 gravityvector = Vector3.zero;
