@@ -246,7 +246,7 @@ namespace FPSControllerLPFP
                 _velocityX.Current = _velocityZ.Current = 0f;
                 return;
             }
-
+            
             var smoothX = _velocityX.Update(velocity.x, movementSmoothness);
             var smoothZ = _velocityZ.Update(velocity.z, movementSmoothness);
             var rigidbodyVelocity = _rigidbody.velocity;

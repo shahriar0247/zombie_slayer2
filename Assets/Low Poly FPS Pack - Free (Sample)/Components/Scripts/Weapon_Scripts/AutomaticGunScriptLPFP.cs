@@ -164,7 +164,6 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	public string platform;
 
 	public FixedButton firebtn;
-	public FixedJoystick movement_joystick;
 	public GameObject gamemanager;
     private bool button_down;
 
@@ -184,7 +183,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		platform_manager platform_manager = gamemanager.GetComponent<platform_manager>();
 
 		platform = platform_manager.get_platform();
-	
+		
 
 		//Save the weapon name
 		storedWeaponName = weaponName;
@@ -350,7 +349,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		//AUtomatic fire
 		if (platform == "pc")
 		{
-			button_down = Input.GetMouseButtonDown(0);
+			button_down = Input.GetMouseButton(0);
 		}
 		else
 		{

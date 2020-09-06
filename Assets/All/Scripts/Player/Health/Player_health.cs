@@ -23,7 +23,7 @@ public class Player_health : MonoBehaviour
 
     public void take_damage(float amount)
     {
-        health = health - amount * Time.deltaTime;
+        health = health - amount;
         if (health <= 0)
         {
             die();
