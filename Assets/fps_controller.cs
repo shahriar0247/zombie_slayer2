@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
-public class fps_controller : MonoBehaviour
+public class fps_controller : NetworkBehaviour
 {
 
     public float speed = 10f;
     public float sensitivity = 100f;
 
-    public GameObject main_player;
+    public GameObject graphics;
 
     // Start is called before the first frame update
     void Start()
@@ -19,18 +18,22 @@ public class fps_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        Rotate();
-        Gravity();
+
         
+            Movement();
+            Rotate();
+            Gravity();
+       
+     
+
     }
 
     void Movement()
     {
         float Horizontal = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed;
         float Vertical = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
-     
-        main_player.transform.Translate(new Vector3(Horizontal, 0, Vertical));
+
+        this.transform.Translate(new Vector3(Horizontal, 0, Vertical));
 
     }
     void Rotate()
@@ -38,8 +41,8 @@ public class fps_controller : MonoBehaviour
         float Horizontal = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivity;
         float Vertical = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivity;
 
-        this.transform.Rotate(new Vector3(-Vertical, 0, 0));
-        main_player.transform.Rotate(new Vector3(0, Horizontal, 0));
+        graphics.transform.Rotate(new Vector3(-Vertical, 0, 0));
+        this.transform.Rotate(new Vector3(0, Horizontal, 0));
     }
 
     void Gravity()
