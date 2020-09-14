@@ -164,7 +164,7 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	string platform;
 
 	public FixedButton firebtn;
-	GameObject gamemanager;
+	public GameObject gamemanager;
     private bool button_down;
 
     private void Awake () {
@@ -180,12 +180,14 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 	private void Start () {
 
 		//geting if its mobile or pc
+	
 		gamemanager = GameObject.FindGameObjectWithTag("game_manager");
+		if (gamemanager != null) { 
 		platform_manager platform_manager = gamemanager.GetComponent<platform_manager>();
 
 		platform = platform_manager.get_platform();
-		
 
+		}
 		//Save the weapon name
 		storedWeaponName = weaponName;
 		//Get weapon name from string to text
@@ -348,13 +350,20 @@ public class AutomaticGunScriptLPFP : MonoBehaviour {
 		}
 
 		//AUtomatic fire
-		if (platform == "pc")
+		if (gamemanager != null)
 		{
-			button_down = Input.GetMouseButton(0);
+			if (platform == "pc")
+			{
+				button_down = Input.GetMouseButton(0);
+			}
+			else
+			{
+				button_down = firebtn.Pressed;
+			}
 		}
-		else
-		{
-			button_down = firebtn.Pressed;
+        else
+        {
+			button_down = Input.GetMouseButton(0);
 		}
 
 		//Left click hold 

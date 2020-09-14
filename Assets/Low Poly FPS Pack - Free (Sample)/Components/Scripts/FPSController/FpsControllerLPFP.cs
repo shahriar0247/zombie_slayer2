@@ -71,7 +71,7 @@ namespace FPSControllerLPFP
 
      
   
-        GameObject gamemanager;
+        public GameObject gamemanager;
         string platform;
 
         public FixedJoystick movement_joystick;
@@ -93,6 +93,7 @@ namespace FPSControllerLPFP
             _velocityZ = new SmoothVelocity();
 
             gamemanager = GameObject.FindGameObjectWithTag("game_manager");
+
             platform_manager platform_manager = gamemanager.GetComponent<platform_manager>();
 
             platform = platform_manager.get_platform();

@@ -5,15 +5,15 @@ using UnityEngine.Networking;
 
 public class enable_local_player_script : NetworkBehaviour
 {
-    public Behaviour[] components_to_disable;
+    public Behaviour[] components_to_enable;
 
     void Start()
     {
-        if (!isLocalPlayer)
+        if (isLocalPlayer)
         {
-            for (int i = 0; i < components_to_disable.Length; i++)
+            for (int i = 0; i < components_to_enable.Length; i++)
             {
-                components_to_disable[i].enabled = false;
+                components_to_enable[i].enabled = true;
             }
         }
     }

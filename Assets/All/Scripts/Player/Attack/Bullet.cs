@@ -20,7 +20,8 @@ public class Bullet : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "Zombie") { 
+        if (collision.gameObject.tag == "Zombie") {
+            Debug.Log("hit");
         collision.gameObject.GetComponent<Zombie_Controller>().take_damage(20f);
         }
     }
